@@ -1,37 +1,91 @@
 """
-    |> If there are multiple classes that are connected to each-other or sharing any common function then we can create a base class that contains that common method, This is known as Abstract base class method.
+===========================================
+        Abstract Base Classes (ABC)
+===========================================
+
+🔹 Why use Abstract Base Classes?
+    - When multiple classes share common functionality,
+      we can enforce a common method structure in a base class.
+    - ABCs ensure that derived classes MUST implement certain methods.
+
+🔹 Key Points:
+    1. We use Python’s built-in `abc` module.
+    2. `ABC` is the base class for defining Abstract Base Classes.
+    3. `@abstractmethod` decorator marks methods that 
+       MUST be implemented by subclasses.
+    4. Objects CANNOT be created directly from an abstract class.
+    5. Abstract methods act like a "contract" that child classes must follow.
 """
 
-"""
-    for using abstract method we have to import some modules 
-"""
-
+# Importing Abstract Base Class tools
 from abc import ABC, abstractmethod
-# ABC standa for  abstract base class
 
+
+# -------------------------------
+# Abstract Base Class
+# -------------------------------
 class Shape(ABC):
+
     @abstractmethod
     def print_area(self):
-        return 0 
-"""
-    we cant create an object by using abstract base class
-"""
+        """
+        Abstract Method:
+        Must be implemented in derived classes.
+        """
+        pass
 
 
-
+# -------------------------------
+# Concrete Subclass: Rectangle
+# -------------------------------
 class Rectangle(Shape):
     type = "Rectangle"
     sides = 4
 
-    def __init__(self):
-        self.length = 5
-        self.breadth = 6
+    def __init__(self, length, breadth):
+        self.length = length
+        self.breadth = breadth
 
-    def print_area(self): 
+    def print_area(self):
+        """
+        Overriding abstract method.
+        """
         return self.length * self.breadth
-        # if we remove this print_area() function the code will give an error because we are forcing that print_area() method present in base class
 
 
-rect1 = Rectangle()
+# -------------------------------
+# Concrete Subclass: Circle
+# -------------------------------
+class Circle(Shape):
+    type = "Circle"
+    sides = 0
 
-print(rect1.print_area())
+    def __init__(self, radius):
+        self.radius = radius
+
+    def print_area(self):
+        """
+        Overriding abstract method.
+        Formula: πr²
+        """
+        from math import pi
+        return pi * (self.radius**2)
+
+
+# -------------------------------
+# Demonstration
+# -------------------------------
+# rect1 = Shape()  # ❌ ERROR: Cannot instantiate abstract class
+rect1 = Rectangle(5, 6)
+circle1 = Circle(4)
+
+print("Rectangle Area:", rect1.print_area())
+print("Circle Area:", circle1.print_area())
+"""
+💡 Key Notes:
+1. Shape is an Abstract Base Class — cannot create objects from it.
+2. Rectangle and Circle inherit Shape, so they MUST implement print_area().
+3. If a child class does not implement the abstract method, 
+   Python will throw an error.
+4. Abstract Base Classes help enforce consistency across related classes.
+"""

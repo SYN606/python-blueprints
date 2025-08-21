@@ -1,35 +1,63 @@
+"""
+===========================================
+        self and __init__ in Python OOP
+===========================================
+
+🔹 self → Represents the instance of the class (the object itself).
+          - It is automatically passed when we call a method on an object.
+          - It allows access to instance variables and methods of the class.
+
+🔹 __init__ → A special method in Python classes called "constructor".
+              - It runs automatically whenever a new object is created.
+              - It initializes (assigns values to) instance variables.
+
+💡 Together, they make it possible to set up object data cleanly 
+   when the object is created.
+"""
+
+
+# -------------------------------
+# Defining a Class with Constructor
+# -------------------------------
 class Employee:
-    num_of_leaves = 5 
+    # Class Variable (shared among all objects)
+    num_of_leaves = 5
 
-    # creating constructors
-
+    # Constructor (__init__)
     def __init__(self, name, salary, role):
+        # Instance Variables (unique for each object)
         self.name = name
         self.salary = salary
         self.role = role
 
-    # function for printing details
-    
+    # Instance Method
     def print_details(self):
-        return f"The name of employee is {self.name}, salary is {self.salary} and role is {self.role}."
+        return f"Name: {self.name}, Salary: {self.salary}, Role: {self.role}"
 
+
+# -------------------------------
+# Creating Objects (Instances)
+# -------------------------------
 ram = Employee("Ram", 18000, "Instructor")
-
-# ram.name = "Ram"
-# ram.salary = 18000
-# ram.role = "Instructor"
-
-
 shyam = Employee("Shyam", 15000, "Clerk")
 
-# shyam.name = "Shyam"
-# shyam.salary = 15000
-# shyam.role = "Clerk"
-
-
+# -------------------------------
+# Accessing Data
+# -------------------------------
 print(ram.print_details())
-
+print(shyam.print_details())
 """
-    |> the self parameter is defined as the self which means that variable itself.
-    |> the __init__ is used for initialize a variable to instanse variable while using in a class.
+💡 Key Notes:
+1. self:
+   - Acts like "this" keyword in other languages (Java, C++).
+   - Refers to the *current object* calling the method.
+   - Example: ram.print_details() internally becomes Employee.print_details(ram).
+
+2. __init__:
+   - Called automatically when a new object is created.
+   - Helps us initialize instance variables (so we don’t assign them manually each time).
+   - Without __init__, we’d have to do:
+        ram.name = "Ram"
+        ram.salary = 18000
+        ram.role = "Instructor"
 """
