@@ -1,29 +1,24 @@
-# 🚀 Python Basics Cheatsheet 🔥
 
-## Escape Sequences 🔭
+# Python OOPS concepts
 
-| Escape Sequence | Description         |
-| --------------- | ------------------- |
-| `\n`            | New line            |
-| `\t`            | Horizontal tab      |
-| `\b`            | Backspace           |
-| `\v`            | Vertical tab        |
+The basic idea o this repo came in my mind when i was learning python so i thought to provide a source code with all major topics in python.
 
-## Typecasting 🧷
+Now this repo contains basic of python in [python basics](python%20basics)
 
-| **Function**         | **Description**                            | **Example**                                       |
-|----------------------|--------------------------------------------|---------------------------------------------------|
-| `int(x)`             | Converts `x` to an integer.                | `int(3.14)` → `3`                                 |
-| `float(x)`           | Converts `x` to a floating-point number.   | `float(5)` → `5.0`                                |
-| `str(x)`             | Converts `x` to a string.                  | `str(42)` → `'42'`                                |
-| `list(x)`            | Converts `x` to a list.                    | `list("hello")` → `['h', 'e', 'l', 'l', 'o']`     |
-| `tuple(x)`           | Converts `x` to a tuple.                   | `tuple([1, 2, 3])` → `(1, 2, 3)`                  |
-| `set(x)`             | Converts `x` to a set.                     | `set([1, 2, 2, 3])` → `{1, 2, 3}`                 |
-| `dict(x)`            | Converts `x` to a dictionary.              | `dict([('a', 1), ('b', 2)])` → `{'a': 1, 'b': 2}` |
-| `bool(x)`            | Converts `x` to a Boolean value.           | `bool(42)` → `True`                               |
-| `chr(x)`             | Converts an integer to a character.        | `chr(65)` → `'A'`                                 |
-| `ord(x)`             | Converts a character to its Unicode code.  | `ord('A')` → `65`                                 |
+## Get Started 🚀  
 
-## Checkout 👉🏻 [Operators](OPERATORS.md) 🚀
+For cloning this repo via command line :
 
-## check this out 👉🏻 [Important](IMPORTANT.md) 🚀
+```
+    git clone https://github.com/SYN606/python-oops-concepts.git
+```
+    
+
+## Description 🔥  
+This repo contains many useful concepts of python as `oops concepts, file handelling some important modules` etc that are necessary for a python developer
+also these files are sorted in a learning roadmap that when you start reading it you dont feel bored.
+    
+Check out [OOPs concepts](OOPS%20in%20Py). 
+Check out [File handelling](py%20FileManagement).
+
+### Thanks for visiting
