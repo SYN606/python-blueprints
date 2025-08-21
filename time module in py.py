@@ -1,20 +1,50 @@
+"""
+    Python Time Module
+
+    |> The `time` module in Python provides functions to work with time values.
+    |> Useful for measuring execution time, delays, and formatting time.
+
+    Important Functions:
+
+    1. time.time() 
+       - Returns the current time in seconds since Epoch (1 Jan 1970).
+    
+    2. time.localtime()
+       - Converts epoch time into a struct_time object.
+    
+    3. time.asctime()
+       - Converts struct_time into a human-readable string.
+    
+    4. time.sleep(seconds)
+       - Suspends execution for the given number of seconds.
+    
+    5. time.perf_counter()
+       - High-resolution timer (better than time.time() for performance measurement).
+"""
 
 import time
 
+# 1️⃣ Measuring execution time
 initial = time.time()
 
-# checking the run time  of a for loop
+for i in range(1000000):
+    _ = i * i   # dummy work
 
-# for i in range(45):
-#     print("This  is statement for cheking the runtime of for loop in python")
-
-# print(f"\nFor loop ran in {time.time() - initial} seconds")
+print(f"For loop ran in {time.time() - initial} seconds\n")
 
 
-# returning localtime
+# 2️⃣ Current time in ticks (epoch time)
+print("Current time in ticks:", time.time())
 
-localtime = time.asctime(time.localtime(time.time())) 
-# --> time.time() will return ticks then time.localtime() will convert it into localtime but in a tuple then time.asctime() will change it into readable format.
-print(localtime)
+# 3️⃣ Local time (struct_time object)
+local_struct = time.localtime(time.time())
+print("\nLocal time (struct_time):", local_struct)
 
+# 4️⃣ Human-readable formatted local time
+localtime = time.asctime(local_struct)
+print("Formatted local time:", localtime)
 
+# 5️⃣ Using sleep()
+print("\nWaiting for 3 seconds...")
+time.sleep(3)
+print("Done waiting!")

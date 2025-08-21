@@ -1,22 +1,43 @@
+"""
+    Python Exception Handling (try, except, else, finally)
+
+    👉 Exception handling in Python allows us to handle errors gracefully 
+       instead of crashing the program.
+
+    Syntax:
+        try:
+            # Code that may raise an error
+        except <ErrorType>:
+            # Code to handle the error
+        else:
+            # Code that runs if no exception occurs
+        finally:
+            # Code that always runs (cleanup tasks)
+
+    ✅ Explanation of blocks:
+        - try     : The block of code where exceptions may occur.
+        - except  : Handles the exception if it occurs.
+        - else    : Runs only if no exception was raised inside try.
+        - finally : Runs no matter what (used for cleanup, closing files, etc.).
+"""
+
+# Example: Reading a file with exception handling
 try:
     with open("file.txt") as f:
-        a = f.readlines()
-    print(a)
+        data = f.readlines()
+    print("File contents:", data)
 
-# we can write more than one exception statement.
-# 
+except FileNotFoundError as e:
+    print("Error: File not found ->", e)
+
+except PermissionError as e:
+    print("Error: Permission denied ->", e)
+
 except Exception as e:
-    print(e)
+    print("General error occurred:", e)
 
-# else:  
-#     print("this will run only when except will not work/run")
-
-
-# using finally means that it will do a finally task doesn't matters try and except runs or not.
+else:
+    print("✅ File read successfully (no exception occurred).")
 
 finally:
-    print(f"Important Task")
-
-"""
-    it can be used for cleaning up the code.
-"""
+    print("🔒 Important Task: Closing resources or cleanup.")

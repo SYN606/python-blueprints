@@ -1,23 +1,36 @@
-from glob import glob
+# -----------------------------
+# Global and Local Variables
+# -----------------------------
 
-
-l = 10 # --> * Global Variable
+l = 10   # Global Variable
 
 def func(n):
-    # l = 5 # --> ** Local Variable
-    global l # --> it allows to change the global variable's value.
-    print(l)
+    # l = 5   # Local variable (if uncommented, it shadows the global variable)
+    
+    global l  # Tells Python: use the global 'l' instead of creating a local one
+    print("Value of l (global):", l)
 
-    print("I have printed",n)
+    l = 20   # Now we can modify the global variable
+    print("I have printed:", n)
 
 func("This is me")
+print("Updated value of l (global):", l)
 
 
-
-"""--> * if a variable is declared outside of a function then it is a global variable and also it can be used inside of a function."""
-
-"""--> ** if a variable id declared insdie of a function then its a local variable. Local variables can't be used outside of a function but if we create a variable that name is simiallier to global varible the will act like a local variable and also its value will be as declared as locally.
 """
-"""
-Note : if a variable isn't found locally or not declared in locally then python searches that variable globally. Also if a variable is globally then inside a function it can be only read
+📌 Key Notes:
+------------------------------------------
+1. Global Variable:
+   - Declared outside all functions.
+   - Can be accessed inside functions, but cannot be modified unless declared with `global`.
+
+2. Local Variable:
+   - Declared inside a function.
+   - Only accessible inside that function.
+   - If a local variable has the same name as a global variable, it shadows the global one.
+
+3. The 'global' keyword:
+   - Allows modifying a global variable inside a function.
+
+🔎 Rule: Python first looks for variables in local scope, if not found, then searches in global scope.
 """
