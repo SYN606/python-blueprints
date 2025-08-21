@@ -1,17 +1,51 @@
-# Object-Oriented Programming (OOP) Fundamentals
+# Polymorphism in Object-Oriented Programming (OOP)
 
-Object-Oriented Programming (OOP) encompasses several key concepts that form the foundation of designing and organizing code. Among these, the four fundamental principles are:
+![OOP](https://img.shields.io/badge/OOP-Concept-blue) 
+![Principle](https://img.shields.io/badge/Principle-Polymorphism-purple) 
+![Python](https://img.shields.io/badge/Language-Python-green)
 
-1. **Abstraction**
-   - Abstraction is the process of simplifying complex systems by modeling classes based on essential properties and behaviors, while ignoring non-essential details. It involves creating abstract classes and interfaces to define a blueprint for objects.
+---
 
-2. **Encapsulation**
-   - Encapsulation is the bundling of data and methods that operate on that data into a single unit known as a class. It promotes the idea of hiding the internal details of an object and exposing only what is necessary. This helps in achieving better organization and security in code.
+## 🔎 What is Polymorphism?
+Polymorphism is the ability of an object to take on **multiple forms**.  
+It allows methods or operators to behave differently based on the **object or data type** they are working with.  
 
-3. **Inheritance**
-   - Inheritance is a mechanism that allows a new class (subclass/derived class) to inherit properties and behaviors from an existing class (base class/parent class). It promotes code reusability and the establishment of a hierarchical relationship among classes.
+In simple terms:  
+👉 *The same function name can perform different tasks depending on the object that calls it.*
 
-4. **Polymorphism**
-   - Polymorphism is a concept that refers to the ability of objects to take on multiple forms. It allows objects of different classes to be treated as objects of a common base class. Polymorphism can be achieved through method overriding and interfaces, enabling flexibility and extensibility in code.
+---
 
-These four principles collectively contribute to building robust, modular, and maintainable software systems using the principles of object-oriented design.
+## ⚡ Types of Polymorphism
+
+### 1. **Compile-time Polymorphism** (Method Overloading)  
+- Same method name with **different parameter lists**.  
+- Not natively supported in Python, but can be mimicked using default arguments or `*args`.
+
+### 2. **Run-time Polymorphism** (Method Overriding)  
+- A **child class** redefines a method from its **parent class**.  
+- The version of the method that gets called depends on the object instance.
+
+---
+
+## 🐍 Example in Python
+
+```python
+# Example of Method Overriding (Run-time Polymorphism)
+
+class Animal:
+    def speak(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+# Different objects, same method name
+animals = [Dog(), Cat(), Animal()]
+
+for a in animals:
+    print(a.speak())
