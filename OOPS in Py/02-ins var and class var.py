@@ -11,6 +11,7 @@
   Python creates a new instance variable instead of modifying the class variable.
 """
 
+
 # -------------------------------
 # Defining a Class
 # -------------------------------
@@ -32,13 +33,11 @@ shyam.name = "Shyam"
 shyam.salary = 15000
 shyam.role = "Clerk"
 
-
 # -------------------------------
 # Accessing Instance Variables
 # -------------------------------
 print(f"Name: {ram.name}, Salary: {ram.salary}, Role: {ram.role}")
 print(f"Name: {shyam.name}, Salary: {shyam.salary}, Role: {shyam.role}")
-
 
 # -------------------------------
 # Accessing Class Variable
@@ -50,16 +49,14 @@ print(f"Leaves allowed (via object): {ram.num_of_leaves}")
 Employee.num_of_leaves = 10
 print(f"Updated leaves (via class): {Employee.num_of_leaves}")
 
-
 # -------------------------------
 # What if we try to change via object?
 # -------------------------------
-shyam.num_of_leaves = 7   # Creates a NEW instance variable (doesn't affect class variable)
+shyam.num_of_leaves = 7  # Creates a NEW instance variable (doesn't affect class variable)
 
 print(f"Shyam's leaves (instance variable): {shyam.num_of_leaves}")
 print(f"Employee class leaves (still unchanged): {Employee.num_of_leaves}")
 print(f"Ram's leaves (still sees class variable): {ram.num_of_leaves}")
-
 
 # -------------------------------
 # Inspecting Class Dictionary

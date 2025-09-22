@@ -62,8 +62,18 @@ class Player:
 class CoolProgrammer(Employee, Player):
     language = "Python"
 
+    def __init__(self, name, salary, role, *game):
+        Employee.__init__(self, name, salary, role)
+        Player.__init__(self, name, game)
+
     def print_language(self):
         return f"Favorite Language: {self.language}"
+
+    def print_all_details(self):
+        emp = self.print_details()
+        game_info = f"Player → Name: {self.name}, Game: {self.game}" if self.game else "No game assigned"
+        lang = self.print_language()
+        return f"{emp}\n{game_info}\n{lang}"
 
 
 # -------------------------------
@@ -73,7 +83,7 @@ ram = Employee("Ram", 18000, "Instructor")
 kabir = Player("Kabir", "Cricket")
 
 # Multiple inheritance object
-rahim = CoolProgrammer("Rahim", 25000, "Programmer")
+# rahim = CoolProgrammer("Rahim", 25000, "Programmer")
 
 # -------------------------------
 # Demonstration
@@ -81,14 +91,9 @@ rahim = CoolProgrammer("Rahim", 25000, "Programmer")
 print(ram.print_details())
 print(kabir.print_game())
 
-# Inherited from Employee (since Employee is the first parent in MRO)
+rahim = CoolProgrammer("Rahim", 25000, "Developer")
 print(rahim.print_details())
-
-# Child's own method
-print(rahim.print_language())
-
-# Static method inherited from Employee
-rahim.print_good("Multiple Inheritance in Python")
+print(rahim.print_all_details())
 
 # -------------------------------
 # Method Resolution Order (MRO)
